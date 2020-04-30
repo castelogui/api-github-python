@@ -1,5 +1,5 @@
-from listaUsers import ListaUsers
+from dataUsers import DataUsers
 
 user = 'castelogui'#input('Usuário: ')
-dados = ListaUsers(user)
+dados = DataUsers(user)
 dados.recebe_repo()
