@@ -1,6 +1,5 @@
 import requests
 import json
-from dataRepos import DataRepos
 
 class DataUsers():
 
@@ -8,7 +7,7 @@ class DataUsers():
         '_user'
     ]
     def __init__(self, user=''):
-        self._user = self.user = user
+        self.user = user
 
     @property
     def user(self):
@@ -17,7 +16,7 @@ class DataUsers():
     @user.setter
     def user(self, user=''):
         self._user = user 
-    
+
     def request_repo_api(self):
         resposta = requests.get(
             f'https://api.github.com/users/{self._user}/repos'
@@ -38,14 +37,7 @@ class DataUsers():
                 repo['language'] = dados_api[i]['language']
                 repo['create'] = dados_api[i]['created_at']
                 repo['update'] = dados_api[i]['updated_at']
-                repositorio = DataRepos(
-                    repo['name'], 
-                    repo['full_name'],
-                    repo['description'],
-                    repo['language'],
-                    repo['create'],
-                    repo['update'])
-                print('\n\nRepositório {}'.format(i+1))
-                repositorio.print_repo()
+                print(repo['name'])
+
         else:
             print(dados_api)
