@@ -3,4 +3,6 @@ from dataUsers import DataUsers
 
 user = 'castelogui'#input('Usuário: ')
 dados = DataUsers(user)
-dados.recebe_repo()
+data = dados.recebe_repo()
+for i in range(len(data)):
+    print(data)
